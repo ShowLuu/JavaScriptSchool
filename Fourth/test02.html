@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	
+	.class0{
+		text-align:center;}
+	.table1{
+		;
+		}
+	.class1{
+		background-color:#C00}
+	.class2{
+		background-color:#CF3}
+</style>
+<script type="text/javascript">
+	function insert(){
+		var table=document.getElementById("table1");
+		var newTr=table.insertRow(table.rows.length);
+		var newTd=newTr.insertCell(0);
+		newTd.innerHTML="李贤";
+		var newTd=newTr.insertCell(1);
+		newTd.innerHTML="男";
+		var newTd=newTr.insertCell(2);
+		newTd.innerHTML="23";
+		var newTd=newTr.insertCell(3);
+		newTd.innerHTML="24389511";
+		var newTd=newTr.insertCell(4);
+		newTd.innerHTML="软件工程";
+		var newTd=newTr.insertCell(5);
+		newTd.innerHTML="1班";
+	}
+	
+	function inserts(){
+		var table=document.getElementById("table1");
+		var index=parseInt(document.getElementById("index").value);
+		if(index==0){
+			return;
+		}
+		//alert(index+"="+table.rows.length);
+		if(index>table.rows.length){
+			alert("越界！");
+			clearIn();
+			return;
+		}
+		var newTr=table.insertRow(index);
+		var newTd=newTr.insertCell(0);
+		newTd.innerHTML=document.getElementById("name").value;
+		var newTd=newTr.insertCell(1);
+		newTd.innerHTML=document.getElementById("sex").value;
+		var newTd=newTr.insertCell(2);
+		newTd.innerHTML=document.getElementById("age").value;
+		var newTd=newTr.insertCell(3);
+		newTd.innerHTML=document.getElementById("phone").value;
+		var newTd=newTr.insertCell(4);
+		newTd.innerHTML=document.getElementById("stu").value;
+		var newTd=newTr.insertCell(5);
+		newTd.innerHTML=document.getElementById("cla").value;
+		clearIn();
+	}
+	
+	function clearIn(){
+		document.getElementById("index").value="";
+		document.getElementById("name").value="";
+		document.getElementById("sex").value="";
+		document.getElementById("age").value="";
+		document.getElementById("phone").value="";
+		document.getElementById("stu").value="";
+		document.getElementById("cla").value="";
+	}
+	
+	function focuss(){
+		document.getElementById("username").value="";
+	}
+	function blurs(){
+		var str=document.getElementById("username").value;
+		if(str==""){
+			alert("请输入用户！");
+			return;
+		}
+		var check=str.substr(0,2);
+		if(check!="10"||isNaN(str)){
+			alert("输入有误！");
+			focuss();
+			return;
+		}
+	}
+	
+	function result(){
+		var pirce=document.getElementById("pirce").value;
+		var num=document.getElementById("num").value;
+		var result=pirce*num;
+		document.getElementById("total").value=result;
+	}
+	
+</script>
+</head>
+
+<body>
+
+
+<form id="form1" class="class0">
+<table id="table1" style="background-color:#6FF;margin:auto;" border:1 cellpadding="0" cellspacing="0">
+	<tr class="class1">
+		<td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>手机号学号</td>
+        <td>专业</td>
+        <td>班级</td>
+	</tr>
+    <tr>
+		<td class="class2">张三</td>
+        <td>男</td>
+        <td>20</td>
+        <td>1234567890</td>
+        <td>计算机</td>
+        <td>1班</td>
+	</tr>
+     <tr>
+		<td class="class2">李四</td>
+        <td>男</td>
+        <td>10</td>
+        <td>4321567890</td>
+        <td>计算机</td>
+        <td>2班</td>
+	</tr>
+     <tr>
+		<td class="class2">王三</td>
+        <td>男</td>
+        <td>21</td>
+        <td>98764215132</td>
+        <td>计算机</td>
+        <td>3班</td>
+	</tr>
+     <tr>
+		<td class="class2">麻子</td>
+        <td>女</td>
+        <td>20</td>
+        <td>122344690</td>
+        <td>机械自动化</td>
+        <td>1班</td>
+	</tr>
+     <tr>
+		<td class="class2">都市风</td>
+        <td>女</td>
+        <td>22</td>
+        <td>3159862494</td>
+        <td>机械自动化</td>
+        <td>2班</td>
+	</tr>
+    <input type="button" value="插入" onclick="insert();"/>
+</table>
+<table style="background-color:#CC0;margin:auto;">
+	<tr>
+    	<td>姓名：</td>
+        <td><input id="name" type="text" value=""/></td>
+	</tr>
+    <tr>
+		<td>性别：</td>
+        <td><input id="sex" type="text" value=""/></td>
+	</tr>
+    <tr>
+		<td>年龄：</td>
+        <td><input id="age" type="text" /></td>
+	</tr>
+    <tr>
+		<td>手机号：</td>
+        <td><input id="phone" type="text" /></td>
+	</tr>
+    <tr>
+		<td>专业：</td>
+        <td><input id="stu" type="text" /></td>
+	</tr>
+    <tr>
+		<td>班级：</td>
+        <td><input id="cla" type="text" /></td>
+	</tr>
+    	索引：<input id="index" type="text" style="width:20px"/>
+    	<input type="button" value="插入一行" onclick="inserts();"/>
+    </tr>
+</table>
+</form>
+
+<br />
+<br />
+
+<form id="form2">
+<table id="table2">
+	<tr>
+		<td>用户：</td>
+        <td><input id="username" type="text" value="102222" onfocus="focuss();" onblur="blurs();"/></td>
+	</tr>
+    <tr>
+		<td>单价：</td>
+        <td><input id="pirce" type="text" value="25" readonly="readonly"/></td>
+	</tr>
+    <tr>
+		<td>数量：</td>
+        <td><input id="num" type="text" onchange="result();"/></td>
+	</tr>
+    <tr>
+		<td>总金额：</td>
+        <td><input id="total" type="text" /></td>
+	</tr>
+</table>
+</form>
+
+</body>
+</html>
