@@ -1,0 +1,99 @@
+<!DOCTYPE>
+<html>
+<head>
+<script type="text/javascript">
+	function check1(){
+		var form=document.form1;
+		var radio=form.sex;
+		var len=radio.length;
+		var rValue;
+		for(var i=0;i<len;i++){
+			if(radio[i].checked==true){
+				rValue=radio[i].value;
+			}
+		}
+		
+		var check=form.checkbox;
+		var len2=check.length;
+		var cValue=new Array();
+		for(var i=0;i<len2;i++){
+			if(check[i].checked==true){
+				cValue[i]=check[i].value;
+			}
+		}
+		
+		document.write("<h2>结果信息</h2>");
+		document.write("<hr>");
+		document.write("<pre>性别：  "+rValue+"</pre>");
+		document.write("<pre>兴趣：  "+cValue+"</pre>");
+	}
+	
+	function doSelect(){
+		var select=document.form1.mySelect;
+
+		var index = select.selectedIndex; // 选中索引
+
+		var text = select.options[index].text; // 选中文本
+
+		var value = select.options[index].value; // 选中值
+		alert(text+"="+value);
+		document.form1.country.value=text;
+		document.form1.username.focus();
+	}
+</script>
+</head>
+<body>
+	
+	<form name="form1" onSubmit="check1();" action="test02.html">
+		<table name="table1">
+			<tr>
+				<td>用户名：</td>
+				<td><input type="text" name="username"/></td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type="text" name="password"/></td>
+			</tr>
+			<tr>
+				<td>省份：</td>
+				<td>
+					<select name="mySelect" onchange="doSelect();">
+						<option>请选择</option>
+						<option>北京市</option>
+						<option>天津市</option>
+						<option>安徽省</option>
+						<option>江苏省</option>
+						<option>四川省</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>城市：</td>
+				<td><input type="text" name="country"/></td>
+			</tr>
+			<tr>
+				<td>性别：<td>
+				<input type="radio" value="男" name="sex"/>男
+				<input type="radio" value="女" name="sex"/>女
+			</tr>
+			<tr>
+				<td>爱好：</td>
+				<td>
+					<input type="checkbox" value="足球" name="checkbox"/>足球
+					<input type="checkbox" value="篮球" name="checkbox"/>篮球
+					<input type="checkbox" value="乒乓球" name="checkbox"/>乒乓球
+					<input type="checkbox" value="羽毛球" name="checkbox"/>羽毛球
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="提交" name="submit1"/>
+					<input type="reset" value="重置" name="reset1"/>
+				</td>
+			</tr>
+		</table>
+				
+	</form>
+	
+</body>
+</html>
